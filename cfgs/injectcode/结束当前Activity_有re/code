@@ -1,0 +1,5 @@
+
+#结束当前activity，类名要改一下
+invoke-virtual {p0}, Lcom/example/administrator/myapplication/MainActivity;->finish()V
+
+return-void

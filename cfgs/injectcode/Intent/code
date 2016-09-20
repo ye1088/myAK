@@ -1,0 +1,9 @@
+new-instance v0, Landroid/content/Intent;
+#这里是要跳到的类
+const-class v1, Lcom/unity3d/player/UnityPlayerNativeActivity;
+
+invoke-direct {v0, p0, v1}, Landroid/content/Intent;-><init>(Landroid/content/Context;Ljava/lang/Class;)V
+
+.local v0, "intent":Landroid/content/Intent;
+#这里加的是我们所在的类中
+invoke-virtual {p0, v0}, Lcom/inject/InjectActivity;->startActivity(Landroid/content/Intent;)V
