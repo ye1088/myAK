@@ -60,9 +60,9 @@ if __name__ =='__main__':
         #获取文件的修改时间
         md_time = os.path.getmtime(sub_file)
         # print(md_time)
-		
+
         if isFirst:
-            if "removeAds.py" in sub_file:
+            if "removeAds.py" in sub_file or sub_file==os.getcwd():
                 continue
             isFirst = False
             nowFile.append(sub_file)
@@ -72,7 +72,7 @@ if __name__ =='__main__':
             if nowFile[2]<=300:
                 break
         else:
-            if "removeAds.py" in sub_file:
+            if "removeAds.py" in sub_file or sub_file==os.getcwd():
                 continue
             if md_time>nowFile[1]:
                 nowFile[0] = sub_file
