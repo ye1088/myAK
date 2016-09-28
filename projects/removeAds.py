@@ -41,7 +41,11 @@ def removeAd(dir_path):
             os.remove(root+os.sep+file)
             os.rename(root+os.sep+file+"_",root+os.sep+file)
 
-
+'''
+    实际用的时候ak好像会认为projects上一层是当前
+'''
+def beian():
+    pass
 
 '''
     这是给Android_Killer做的插件，要放到ak路径下的projects目录中
@@ -50,19 +54,20 @@ def removeAd(dir_path):
 '''
 if __name__ =='__main__':
     # dir_path = r"E:\android killer\projects\sign_apk\Project\smali"
-    os.path.abspath(sys.argv[0])
+    os.path.abspath(sys.path[0])
+    print(sys.path[0])
     #当前系统的时间
     nowTime = time.time()
     nowFile = []
     isFirst = True
-    for sub_file in glob.glob(os.getcwd()+os.sep+"*"):
-        print(os.getcwd())
+    for sub_file in glob.glob(sys.path[0]+os.sep+"*"):
+        print(sys.path[0])
         #获取文件的修改时间
         md_time = os.path.getmtime(sub_file)
         # print(md_time)
 
         if isFirst:
-            if "removeAds.py" in sub_file or sub_file==os.getcwd():
+            if "removeAds.py" in sub_file or sub_file==sys.path[0]:
                 continue
             isFirst = False
             nowFile.append(sub_file)
@@ -72,7 +77,7 @@ if __name__ =='__main__':
             if nowFile[2]<=300:
                 break
         else:
-            if "removeAds.py" in sub_file or sub_file==os.getcwd():
+            if "removeAds.py" in sub_file or sub_file==sys.path[0]:
                 continue
             if md_time>nowFile[1]:
                 nowFile[0] = sub_file
